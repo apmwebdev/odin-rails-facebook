@@ -26,6 +26,7 @@
 ### Friend requests
 - sender
 - recipient
+- status
 
 ### Friends
 - user 1
