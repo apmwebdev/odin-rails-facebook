@@ -53,3 +53,7 @@
 - birthday
 - age (calculated from birthday)
 - gender
+
+## To-Dos
+- Next step is step 4, creating the friend request model
+- Figure out how to do status column. Enum? Foreign key? Check constraint?
