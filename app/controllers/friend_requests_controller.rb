@@ -33,6 +33,12 @@ class FriendRequestsController < ApplicationController
     format.html { redirect_to friend_requests_url, notice: "Friend request was successfully destroyed." }
   end
 
+  def accept
+  end
+
+  def reject
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_friend_request

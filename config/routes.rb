@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :notifications
-  resources :friend_requests, except: [:edit, :update]
+  resources :notifications, except: [:new, :edit]
+  resources :friend_requests, except: [:edit, :update] do
+    member do
+      put "accept"
+    end
+  end
   resources :users, only: :index
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
