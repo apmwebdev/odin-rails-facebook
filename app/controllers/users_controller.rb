@@ -18,12 +18,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    generated_password = Devise.friendly_token.first(8)
-    @user = User.new(user_params)
-    @user.encrypted_password = generated_password
+    verified_params = user_params
+    @user = User.new(
+      first_name: verified_params[:first_name],
+      last_name: verified_params[:last_name],
+      email: verified_params[:email],
+      admin: verified_params[:admin],
+      password: "test12"
+    )
 
     if @user.save
       redirect_to @user, notice: "User created successfully"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -5,13 +5,13 @@ Rails.application.routes.draw do
       put "accept"
     end
   end
+  devise_for :users
   resources :users, only: [:index, :show, :new, :create] do
     collection do
       get "create_in_bulk"
       post "do_create_in_bulk"
     end
   end
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
