@@ -56,5 +56,8 @@
 - gender
 
 ## To-Dos
-- Next step is step 4, creating the friend request model
-- Figure out how to do status column. Enum? Foreign key? Check constraint?
+- Add admin role
+- Add ability for admins to add new users
+- Add some test users
+- Create friend request functionality
+- Make first and last name not optional for users

@@ -1,5 +1,14 @@
 <header>
   <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <div class="header-nav-container">
+        <nav class="admin-header">
+          Admin:
+          <%= link_to "Bulk Create Users", create_in_bulk_users_path %>
+          <%= link_to "Create Single User", new_user_path %>
+        </nav>
+      </div>
+    <% end %>
     <div class="header-nav-container">
       <nav>
         <%= link_to "Friend Requests", friend_requests_path %>
