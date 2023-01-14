@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notifications
   resources :friend_requests, except: [:edit, :update]
   resources :users, only: :index
   devise_for :users
