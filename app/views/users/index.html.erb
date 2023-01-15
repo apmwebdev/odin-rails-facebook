@@ -1,3 +1,7 @@
+<h1>Connect with friends</h1>
+
+<%= render "search_form" %>
+
 <% @users.each do |user| %>
-  <p><%= link_to name(user), user %></p>
+  <%= render "user_compact", user: %>
 <% end %>

@@ -1,17 +1,11 @@
 <div id="<%= dom_id friend_request %>">
-  <p>
-    <strong>Sender:</strong>
-    <%= friend_request.sender_id %>
-  </p>
-
-  <p>
-    <strong>Recipient:</strong>
-    <%= friend_request.recipient_id %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= friend_request.status %>
-  </p>
+  <strong>Sender:</strong>
+  <%= name(friend_request.sender) %>
+  <%= form_with model: friend_request,
+    url: accept_friend_request_path(friend_request), method: "post" do |f| %>
+    <%= f.hidden_field :id, value: friend_request.id %>
+    <%= f.submit "Accept" %>
+  <% end %>
+  <%= button_to "Delete request", friend_request, method: :delete %>
 
 </div>

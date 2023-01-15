@@ -15,7 +15,7 @@
         <%= link_to "Users", users_path %>
       </nav>
       <div>
-        <%= link_to current_user.email, edit_user_registration_path %>
+        <%= link_to name(current_user), profile_path %>
         <%= link_to "Log out", destroy_user_session_path%>
       </div>
     </div>

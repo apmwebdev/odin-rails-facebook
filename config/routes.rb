@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   resources :notifications, except: [:new, :edit]
-  resources :friend_requests, except: [:edit, :update] do
+
+  resources :friend_requests, only: [:index, :create, :destroy] do
     member do
-      put "accept"
+      post "accept"
     end
   end
+
   devise_for :users
+
   resources :users, only: [:index, :show, :new, :create] do
     collection do
       get "create_in_bulk"
       post "do_create_in_bulk"
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  get "/profile", to: "users#profile"
 
   # Defines the root path route ("/")
   authenticated :user do

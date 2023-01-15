@@ -58,3 +58,7 @@ header nav {
     justify-content: flex-start;
     gap: 18px;
 }
+
+.add-friend-form {
+    display: inline;
+}

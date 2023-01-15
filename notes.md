@@ -56,8 +56,5 @@
 - gender
 
 ## To-Dos
-- Add admin role
-- Add ability for admins to add new users
-- Add some test users
 - Create friend request functionality
-- Make first and last name not optional for users
+- Make user search form work

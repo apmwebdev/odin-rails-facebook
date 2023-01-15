@@ -43,6 +43,11 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: "Users created successfully"
   end
 
+  def profile
+    @user = current_user
+    render :show
+  end
+
   private
 
   def set_user
