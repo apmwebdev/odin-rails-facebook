@@ -36,13 +36,19 @@
 - title
 - body
 - status (read, unread, dismissed)
+- user ref
+- notifiable ref (polymorphic)
+  - new friendship
+  - new friend request
+  - new comment
+  - new like
 
 ### Posts
 - author
 - body
 
-### Post likes
-- post id
+### Likes
+- post or comment id (polymorphic as :likable)
 - user id
 
 ### Post comments
@@ -61,3 +67,4 @@
 ## Eventual To-Dos
 - Add unfriend functionality
 - Make user search form work
+- Remove friend request status
