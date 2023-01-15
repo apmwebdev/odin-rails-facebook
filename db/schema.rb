@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_043801) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_192733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_043801) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
     t.check_constraint "status::text = ANY (ARRAY['read'::character varying, 'unread'::character varying, 'dismissed'::character varying]::text[])", name: "notification_status"
   end
 
@@ -62,4 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_043801) do
   add_foreign_key "friend_requests", "users", column: "sender_id"
   add_foreign_key "friendships", "users", column: "user1_id"
   add_foreign_key "friendships", "users", column: "user2_id"
+  add_foreign_key "notifications", "users"
 end

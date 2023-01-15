@@ -56,5 +56,8 @@
 - gender
 
 ## To-Dos
-- Create friend request functionality
+- Make notifications
+
+## Eventual To-Dos
+- Add unfriend functionality
 - Make user search form work

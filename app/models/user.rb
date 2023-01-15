@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :friend_requests
+  has_many :friend_requests, :notifications
 
   def friendships
     Friendship.where("user1_id = ? OR user2_id = ?", self.id, self.id)
