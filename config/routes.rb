@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments, except: [:index, :show]
   resources :posts
   resources :notifications, except: [:new, :edit]
 

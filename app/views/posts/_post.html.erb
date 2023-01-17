@@ -1,12 +1,14 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Author:</strong>
-    <%= name(post.author) %>
-  </p>
+<div id="<%= dom_id post %>" class="post">
+  <p><%= name(post.author) %></p>
+  <p><%= link_to post.created_at, post %></p>
+  <p><%= post.content %></p>
 
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
-
+  <div id="<%= dom_id post %>_comments">
+  <% post.comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+  <%= turbo_frame_tag id="new_comment" do %>
+    <%= render "comments/new", commentable_id: post.id, commentable: post %>
+    <% end %>
+  </div>
 </div>

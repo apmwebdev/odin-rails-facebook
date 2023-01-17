@@ -62,3 +62,7 @@ header nav {
 .add-friend-form {
     display: inline;
 }
+
+.post {
+    border: 1px solid gray;
+}

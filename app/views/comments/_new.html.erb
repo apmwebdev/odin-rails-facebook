@@ -1,0 +1,7 @@
+<%= form_with model: Comment, data: { controller: "reset_form",
+  action: "turbo:submit-end->reset_form#reset" } do |f| %>
+  <%= f.hidden_field :commentable_id, value: commentable.id %>
+  <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+  <%= f.text_area :body %>
+  <%= f.submit "Submit", name: nil %>
+<% end %>

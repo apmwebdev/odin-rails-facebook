@@ -47,7 +47,7 @@
 - author
 - body
 
-### Likes
+### Likes (done)
 - post or comment id (polymorphic as :likeable)
 - user id
 
@@ -72,3 +72,4 @@
 - Remove newsfeed route from home controller
 - Make posts show author card of some sort, not just name
 - Notifiables have many notifications? Or just 1?
+- Make comments and posts have same name for body/content
