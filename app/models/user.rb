@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :friend_requests
   has_many :notifications
+  has_many :comments, foreign_key: "commenter_id"
 
   def friendships
     Friendship.where("user1_id = ? OR user2_id = ?", self.id, self.id)

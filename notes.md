@@ -43,17 +43,17 @@
   - new comment
   - new like
 
-### Posts
+### Posts (done)
 - author
 - body
 
 ### Likes
-- post or comment id (polymorphic as :likable)
+- post or comment id (polymorphic as :likeable)
 - user id
 
-### Post comments
-- post id
-- user id
+### Comments (done)
+- commentable id (polymorphic)
+- commenter id
 - body
 
 ### Profile fields
@@ -62,10 +62,13 @@
 - gender
 
 ## To-Dos
-- Make posts
+- comments and likes
 
 ## Eventual To-Dos
 - Add unfriend functionality
 - Make user search form work
 - Remove friend request status
 - Make things use Turbo
+- Remove newsfeed route from home controller
+- Make posts show author card of some sort, not just name
+- Notifiables have many notifications? Or just 1?

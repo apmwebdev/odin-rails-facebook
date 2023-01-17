@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_070454) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_122123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.bigint "commenter_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["commenter_id"], name: "index_comments_on_commenter_id"
+  end
 
   create_table "friend_requests", force: :cascade do |t|
     t.bigint "sender_id", null: false
@@ -32,6 +43,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_070454) do
     t.datetime "updated_at", null: false
     t.index ["user1_id"], name: "index_friendships_on_user1_id"
     t.index ["user2_id"], name: "index_friendships_on_user2_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "likeable_type", null: false
+    t.bigint "likeable_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -71,10 +92,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_070454) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "users", column: "commenter_id"
   add_foreign_key "friend_requests", "users", column: "recipient_id"
   add_foreign_key "friend_requests", "users", column: "sender_id"
   add_foreign_key "friendships", "users", column: "user1_id"
   add_foreign_key "friendships", "users", column: "user2_id"
+  add_foreign_key "likes", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "posts", "users", column: "author_id"
 end
