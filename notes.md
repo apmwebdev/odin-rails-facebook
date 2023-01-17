@@ -17,22 +17,22 @@
 
 ## Model Details
 
-### Users
+### Users (done)
 - first name
 - last name
 - email
 - password digest
 
-### Friend requests
+### Friend requests (done)
 - sender
 - recipient
 - status
 
-### Friends
+### Friends (done)
 - user 1
 - user 2
 
-### Notifications
+### Notifications (done)
 - title
 - body
 - status (read, unread, dismissed)
@@ -62,9 +62,10 @@
 - gender
 
 ## To-Dos
-- Make notifications
+- Make posts
 
 ## Eventual To-Dos
 - Add unfriend functionality
 - Make user search form work
 - Remove friend request status
+- Make things use Turbo

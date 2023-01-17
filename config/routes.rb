@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :notifications, except: [:new, :edit]
 
   resources :friend_requests, only: [:index, :create, :destroy] do
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   authenticated :user do
-    root to: 'home#newsfeed', as: :authenticated_root
+    root to: 'posts#index', as: :authenticated_root
   end
   root "home#landing_page"
 end

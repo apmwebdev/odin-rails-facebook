@@ -10,12 +10,15 @@ class User < ApplicationRecord
     Friendship.where("user1_id = ? OR user2_id = ?", self.id, self.id)
   end
 
-  def friends
-    friendships_data = friendships.map do |record|
-      next record.user1_id unless record.user1_id == self.id
-      record.user2_id
+  def friend_ids
+    friendships.map do |friendship|
+      next friendship.user1_id unless friendship.user1_id == self.id
+      friendship.user2_id
     end
-    User.where(id: friendships_data)
+  end
+
+  def friends
+    User.where(id: friend_ids)
   end
 
   def friends_with?(user_or_id)
