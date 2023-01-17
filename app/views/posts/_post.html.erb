@@ -4,11 +4,11 @@
   <p><%= post.content %></p>
 
   <div id="<%= dom_id post %>_comments">
-  <% post.comments.each do |comment| %>
-    <%= render comment %>
-  <% end %>
-  <%= turbo_frame_tag id="new_comment" do %>
-    <%= render "comments/new", commentable_id: post.id, commentable: post %>
+    <% post.comments.each do |comment| %>
+      <%= render comment %>
     <% end %>
   </div>
+  <%= turbo_frame_tag id="new_comment" do %>
+    <%= render "comments/new", commentable_id: post.id, commentable: post %>
+  <% end %>
 </div>
