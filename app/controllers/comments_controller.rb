@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
@@ -41,9 +42,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:commentable_id, :commentable_type, :body)
-  end
-
-  def get_turbo_target(commentable)
-
   end
 end

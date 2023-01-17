@@ -6,6 +6,11 @@ class User < ApplicationRecord
   has_many :friend_requests
   has_many :notifications
   has_many :comments, foreign_key: "commenter_id"
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :likeable,
+    source_type: "Post"
+  has_many :liked_comments, through: :likes, source: :likeable,
+    source_type: "Comment"
 
   def friendships
     Friendship.where("user1_id = ? OR user2_id = ?", self.id, self.id)

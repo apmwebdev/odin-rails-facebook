@@ -1,0 +1,2 @@
+<%= button_to "Unlike", get_like_of_user(likeable, current_user),
+  method: :delete %> <%= likeable.likes.count %> likes

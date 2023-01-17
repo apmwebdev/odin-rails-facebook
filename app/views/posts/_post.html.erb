@@ -3,12 +3,16 @@
   <p><%= link_to post.created_at, post %></p>
   <p><%= post.content %></p>
 
+  <%= turbo_frame_tag id="#{dom_id(post)}_likes" do %>
+    <%= render "likes/form", likeable: post %>
+  <% end %>
+
   <div id="<%= dom_id post %>_comments">
     <% post.comments.each do |comment| %>
       <%= render comment %>
     <% end %>
   </div>
-  <%= turbo_frame_tag id="new_comment" do %>
-    <%= render "comments/new", commentable_id: post.id, commentable: post %>
+  <%= turbo_frame_tag id="#{dom_id(post)}_new_comment" do %>
+    <%= render "comments/new", commentable: post %>
   <% end %>
 </div>

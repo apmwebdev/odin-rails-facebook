@@ -1,0 +1,5 @@
+<% if likeable.likers.include?(current_user) %>
+  <%= render "likes/unlike", likeable: %>
+<% else %>
+  <%= render "likes/like", likeable: %>
+<% end %>

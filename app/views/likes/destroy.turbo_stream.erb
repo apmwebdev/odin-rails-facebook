@@ -1,0 +1,3 @@
+<%= turbo_stream.update @like.turbo_target do %>
+  <%= render "like", likeable: @like.likeable %>
+<% end %>
