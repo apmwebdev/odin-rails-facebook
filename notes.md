@@ -68,7 +68,6 @@
 - Add unfriend functionality
 - Make user search form work
 - Remove friend request status
-- Make things use Turbo
 - Remove newsfeed route from home controller
 - Make posts show author card of some sort, not just name
 - Notifiables have many notifications? Or just 1?

@@ -4,6 +4,6 @@
 <p>Admin: <%= @user.admin? %></p>
 
 <h2>Friends</h2>
-<% @user.friends.to_a.each do |friend| %>
+<% @user.friends.each do |friend| %>
   <%= render "user_compact", user: friend %>
 <% end %>
