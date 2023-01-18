@@ -62,7 +62,6 @@
 - gender
 
 ## To-Dos
-- comments and likes
 
 ## Eventual To-Dos
 - Add unfriend functionality
@@ -70,5 +69,4 @@
 - Remove friend request status
 - Remove newsfeed route from home controller
 - Make posts show author card of some sort, not just name
-- Notifiables have many notifications? Or just 1?
 - Make comments and posts have same name for body/content

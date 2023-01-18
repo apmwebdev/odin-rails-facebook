@@ -9,8 +9,12 @@ module ApplicationHelper
     Like.find_by(likeable:, user:)
   end
 
-  def get_gravatar_url(email)
+  def get_gravatar_url(email, img_size = nil)
     hash = Digest::MD5.hexdigest(email.strip.downcase)
-    "https://www.gravatar.com/avatar/#{hash}?d=robohash"
+    url = "https://www.gravatar.com/avatar/#{hash}?d=robohash"
+    if img_size
+      url += "&s=#{img_size}"
+    end
+    url
   end
 end

@@ -17,6 +17,7 @@
         <%= link_to "Notifications", notifications_path %>
       </nav>
       <div>
+        <%= image_tag(get_gravatar_url(current_user.email, 40)) %>
         <%= link_to name(current_user), profile_path %>
         <%= link_to "Log out", destroy_user_session_path%>
       </div>

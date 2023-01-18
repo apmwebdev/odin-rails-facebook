@@ -11,15 +11,13 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-
+  get "/profile", to: "users#profile"
   resources :users, only: [:index, :show, :new, :create] do
     collection do
       get "create_in_bulk"
       post "do_create_in_bulk"
     end
   end
-
-  get "/profile", to: "users#profile"
 
   # Defines the root path route ("/")
   authenticated :user do
