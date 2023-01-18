@@ -1,6 +1,6 @@
 <h1>Create Users in Bulk</h1>
 
-<%= form_with url: do_create_in_bulk_users_path do |f| %>
+<%= form_with url: users_do_create_in_bulk_path do |f| %>
   <%= f.label :number_to_create, "Number of users to create:" %>
   <%= f.number_field :number_to_create %>
   <%= f.submit %>

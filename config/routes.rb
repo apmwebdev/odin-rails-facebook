@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users_profile, only: [:show, :edit, :update]
+  resources :user_profiles, only: [:show, :edit, :update]
   resources :likes, only: [:new, :create, :destroy]
   resources :comments, except: [:index, :show]
   resources :posts
@@ -13,12 +13,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   get "/profile", to: "users#profile"
-  resources :users, only: [:index, :show, :new, :create] do
-    collection do
-      get "create_in_bulk"
-      post "do_create_in_bulk"
-    end
-  end
 
   # Defines the root path route ("/")
   authenticated :user do
@@ -30,5 +24,10 @@ Rails.application.routes.draw do
   authenticated :user, lambda { |user| user.admin? } do
     get "create_profiles_for_existing_users",
       to: "user_profiles#create_for_existing_users"
+    get "users/create_in_bulk"
+    post "users/do_create_in_bulk"
   end
+
+  # Needs to be last so that other things are checked before :show
+  resources :users, only: [:index, :show, :new, :create]
 end
