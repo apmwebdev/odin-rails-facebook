@@ -57,16 +57,23 @@
 - body
 
 ### Profile fields
-- birthday
-- age (calculated from birthday)
+- user:references
+- birthday:date
 - gender
+- bio:text
+- country
+- city
 
 ## To-Dos
+- Add profile
 
 ## Eventual To-Dos
+- Add validation
 - Add unfriend functionality
 - Make user search form work
 - Remove friend request status
 - Remove newsfeed route from home controller
 - Make posts show author card of some sort, not just name
 - Make comments and posts have same name for body/content
+- Implement interests for profile. Separate table.
+- Make location smarter (country, political subdivision, city)

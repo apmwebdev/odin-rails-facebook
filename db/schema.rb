@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_122123) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_181951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_122123) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "user_profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "birthday"
+    t.string "gender"
+    t.text "bio"
+    t.string "country"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -100,4 +112,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_122123) do
   add_foreign_key "likes", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "user_profiles", "users"
 end

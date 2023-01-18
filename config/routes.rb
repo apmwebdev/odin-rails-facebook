@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users_profile, only: [:show, :edit, :update]
   resources :likes, only: [:new, :create, :destroy]
   resources :comments, except: [:index, :show]
   resources :posts
@@ -24,4 +25,10 @@ Rails.application.routes.draw do
     root to: 'posts#index', as: :authenticated_root
   end
   root "home#landing_page"
+
+  # Admin-only routes
+  authenticated :user, lambda { |user| user.admin? } do
+    get "create_profiles_for_existing_users",
+      to: "user_profiles#create_for_existing_users"
+  end
 end

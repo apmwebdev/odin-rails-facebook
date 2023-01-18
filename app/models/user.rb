@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :user_profile
   has_many :friend_requests
   has_many :notifications
   has_many :comments, foreign_key: "commenter_id"
@@ -11,6 +12,7 @@ class User < ApplicationRecord
     source_type: "Post"
   has_many :liked_comments, through: :likes, source: :likeable,
     source_type: "Comment"
+  after_create_commit :create_profile
 
   def friendships
     Friendship.where("user1_id = ? OR user2_id = ?", self.id, self.id)
@@ -38,5 +40,12 @@ class User < ApplicationRecord
     Friendship.where("user1_id = ? AND user2_id = ?", self.id, other)
       .or(Friendship.where("user1_id = ? AND user2_id = ?", other, self.id))
       .exists?
+  end
+
+  private
+
+  def create_profile
+    profile = self.user_profile.build
+    profile.save
   end
 end
