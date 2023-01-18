@@ -3,6 +3,9 @@
 <p><%= @user.email %></p>
 <p>Admin: <%= @user.admin? %></p>
 
+<h2>Profile</h2>
+<%= render "user_profiles/profile" %>
+
 <h2>Friends</h2>
 <% @user.friends.each do |friend| %>
   <%= render "user_compact", user: friend %>

@@ -1,0 +1,10 @@
+<%= turbo_frame_tag @profile do %>
+  <div><strong>Birthday:</strong> <%= @profile.birthday %></div>
+  <div><strong>Gender:</strong> <%= @profile.gender %></div>
+  <div><strong>Country:</strong> <%= @profile.country %></div>
+  <div><strong>City:</strong> <%= @profile.city %></div>
+  <div><strong>About:</strong> <%= @profile.bio %></div>
+  <% if @profile.user_id == current_user.id || current_user.admin? %>
+    <%= link_to "Edit", edit_user_profile_path(@profile) %>
+  <% end %>
+<% end %>

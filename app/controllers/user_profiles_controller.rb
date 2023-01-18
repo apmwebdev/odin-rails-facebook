@@ -8,6 +8,11 @@ class UserProfilesController < ApplicationController
   end
 
   def update
+    if @profile.update(profile_params)
+      redirect_to user_profile_path(@profile), notice: "profile updated successfully"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def create_for_existing_users
@@ -23,7 +28,12 @@ class UserProfilesController < ApplicationController
 
   private
 
+  def profile_params
+    params.require(:user_profile).permit(:user_id, :birthday, :gender, :bio,
+      :country, :city)
+  end
+
   def set_profile
-    @profile = UserProfile.find_by(params[:user_id])
+    @profile = UserProfile.find(params[:id])
   end
 end

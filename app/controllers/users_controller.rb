@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @profile = @user.user_profile
   end
 
   def new
@@ -45,6 +46,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @profile = current_user.user_profile
     render :show
   end
 
