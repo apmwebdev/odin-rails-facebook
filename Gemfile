@@ -78,3 +78,5 @@ gem "faker", "~> 3.1"
 gem "omniauth-facebook", "~> 9.0"
 
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem "letter_opener", group: :development
