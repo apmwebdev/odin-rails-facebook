@@ -65,7 +65,7 @@
 - city
 
 ## To-Dos
-- Add profile
+- Add new account mailer
 
 ## Eventual To-Dos
 - Add validation
