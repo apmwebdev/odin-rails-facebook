@@ -67,8 +67,6 @@
 ## To-Dos
 
 ## Eventual To-Dos
-- Cleanup:
-  - Remove friend request status
 - Add confirmation to sign-up
 - Make posts show author card of some sort, not just name
 - Add validation
