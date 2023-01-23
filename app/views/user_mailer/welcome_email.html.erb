@@ -6,8 +6,8 @@
   <body>
     <h1>Welcome to Austinbook, <%= @user.first_name %></h1>
     <p>
-      You have successfully signed up to Austinbook. To log in to the site,
-      follow this link: <%= @login_url %>.
+      You have successfully signed up and logged into Austinbook. To log in
+      again, go to <%= link_to @login_url, @login_url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
