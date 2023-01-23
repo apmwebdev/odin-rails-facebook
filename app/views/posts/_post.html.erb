@@ -1,5 +1,5 @@
 <div id="<%= dom_id post %>" class="post">
-  <p><%= name(post.author) %></p>
+  <p><%= render "users/user_inline", user: post.author, image_size: 40 %></p>
   <p><%= link_to post.created_at, post %></p>
   <p><%= post.content %></p>
 

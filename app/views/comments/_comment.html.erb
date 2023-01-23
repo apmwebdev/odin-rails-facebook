@@ -1,5 +1,5 @@
 <div id="<%= dom_id comment %>" class="comment">
-  <p><%= name(comment.commenter) %></p>
+  <p><%= render "users/user_inline", user: comment.commenter, image_size: 30 %></p>
   <p><%= comment.created_at %></p>
 
   <p><%= comment.body %></p>
