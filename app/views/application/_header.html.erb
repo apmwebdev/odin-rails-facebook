@@ -14,13 +14,14 @@
     <div class="header-nav-container">
       <nav>
         <%= link_to "Home", authenticated_root_path %>
+        <%= link_to "My Profile", profile_path %>
         <%= link_to "Friend Requests", friend_requests_path %>
         <%= link_to "Users", users_path %>
         <%= link_to "Notifications", notifications_path %>
       </nav>
       <div>
         <%= image_tag(get_gravatar_url(current_user.email, 40)) %>
-        <%= link_to name(current_user), profile_path %>
+        <%= link_to name(current_user), edit_user_registration_path %>
         <%= link_to "Log out", destroy_user_session_path%>
       </div>
     </div>

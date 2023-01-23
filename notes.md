@@ -67,7 +67,7 @@
 ## To-Dos
 
 ## Eventual To-Dos
-- Make sure deleting an account works (because of profile)
+- Add confirmation to sign-up
 - Cleanup:
   - Remove newsfeed route from home controller
   - Remove friend request status
