@@ -67,10 +67,9 @@
 ## To-Dos
 
 ## Eventual To-Dos
-- Add confirmation to sign-up
 - Cleanup:
-  - Remove newsfeed route from home controller
   - Remove friend request status
+- Add confirmation to sign-up
 - Make posts show author card of some sort, not just name
 - Add validation
 - Add unfriend functionality
