@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post "accept"
     end
   end
+  delete "/unfriend", to: "friend_requests#unfriend"
 
   devise_for :users,
     controllers: { omniauth_callbacks: "users/omniauth_callbacks",

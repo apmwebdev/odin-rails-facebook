@@ -2,6 +2,9 @@
 
 <p><%= @user.email %></p>
 <p>Admin: <%= @user.admin? %></p>
+<% if @user != current_user %>
+  <%= render choose_friend_action(@user, current_user), other_user: @user %>
+<% end %>
 
 <h2>Profile</h2>
 <%= render "user_profiles/profile" %>

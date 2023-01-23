@@ -1,0 +1,4 @@
+<%= form_with url: unfriend_path, method: "delete", class: "inline" do |f| %>
+  <%= f.hidden_field "unfriend[friend_id]", value: other_user.id %>
+  <%= f.submit "Unfriend", name: nil %>
+<% end %>

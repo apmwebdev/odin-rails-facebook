@@ -67,8 +67,8 @@
 ## To-Dos
 
 ## Eventual To-Dos
+- Make notification status work
 - Add validation
-- Add unfriend functionality
 - Make user search form work
 - Add styling (maybe, see below)
 

@@ -10,7 +10,6 @@ class FriendRequestsController < ApplicationController
   # POST /friend_requests or /friend_requests.json
   def create
     @friend_request = FriendRequest.new(friend_request_params)
-    @friend_request.status = "pending"
 
     if @friend_request.save
       create_friend_request_notif(@friend_request)
@@ -38,6 +37,13 @@ class FriendRequestsController < ApplicationController
     end
   end
 
+  def unfriend
+    verified_params = unfriend_params
+    friendship = Friendship::find_from_users(current_user.id, verified_params[:friend_id])
+    friendship.destroy
+    redirect_to request.referrer
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_friend_request
@@ -47,6 +53,10 @@ class FriendRequestsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def friend_request_params
     params.require(:friend_request).permit(:sender_id, :recipient_id)
+  end
+
+  def unfriend_params
+    params.require(:unfriend).permit(:friend_id)
   end
 
   def create_friendship_notif(friendship)

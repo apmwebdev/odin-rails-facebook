@@ -1,7 +1,7 @@
 <div>
   <%= image_tag(get_gravatar_url(user.email, 80)) %>
   <%= link_to name(user), user %>
-  <% unless current_user.friends.include?(user) %>
-    <%= render "friend_requests/add_friend", recipient: user %>
+  <% if user != current_user %>
+    <%= render choose_friend_action(user, current_user), other_user: user %>
   <% end %>
 </div>

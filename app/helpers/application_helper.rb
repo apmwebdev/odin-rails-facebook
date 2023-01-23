@@ -17,4 +17,13 @@ module ApplicationHelper
     end
     url
   end
+
+  def choose_friend_action(other_user, current_user)
+    return "" if other_user == current_user
+    if FriendRequest.find_by(sender: current_user, recipient: other_user)
+      return "friend_requests/pending_friend_request"
+    end
+    return "friend_requests/unfriend" if current_user.friends.include?(other_user)
+    "friend_requests/add_friend"
+  end
 end
