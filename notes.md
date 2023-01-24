@@ -67,7 +67,11 @@
 ## To-Dos
 
 ## Eventual To-Dos
-- Make notification status work
+- Complete notification functionality
+  - (done) Show unread notifications number in header
+  - Add ability to dismiss and mark as read
+  - Add notification menu?
+  - Improve notification page UI
 - Add validation
 - Make user search form work
 - Add styling (maybe, see below)

@@ -17,7 +17,13 @@
         <%= link_to "My Profile", profile_path %>
         <%= link_to "Users", users_path %>
         <%= link_to "Friend Requests", friend_requests_path %>
-        <%= link_to "Notifications", notifications_path %>
+        <div class="inline relative">
+          <%= link_to "Notifications", notifications_path %>
+          <div class="unread-notifications">
+            <%= @unread_count %>
+          </div>
+        </div>
+
       </nav>
       <div>
         <%= image_tag(get_gravatar_url(current_user.email, 40)) %>

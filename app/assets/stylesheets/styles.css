@@ -63,6 +63,21 @@ header nav {
     display: inline;
 }
 
+.relative {
+    position: relative;
+}
+
 .post {
     border: 1px solid gray;
+}
+
+.unread-notifications {
+    display: inline-block;
+    position: absolute;
+    font-size: 0.8em;
+    background-color: red;
+    color: white;
+    border-radius: 1000px;
+    padding: 1px 6px;
+    margin-left: 2px;
 }
