@@ -67,12 +67,6 @@
 ## To-Dos
 
 ## Eventual To-Dos
-- Complete notification functionality
-  - (done) Show unread notifications number in header
-  - Add ability to dismiss and mark as read
-  - Add notification menu?
-  - Improve notification page UI
-- Add validation
 - Make user search form work
 - Add styling (maybe, see below)
 
@@ -87,3 +81,5 @@
   association (so users can still like or comment on it while being
   none-the-wiser).
 - Style it up nicely! We’ll dive into HTML/CSS in the next course.
+- Add notification menu
+- Automatically mark notifications as read at some point

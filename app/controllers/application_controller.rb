@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_unread_count
-    @unread_count = current_user.notifications.count
+    @unread_count = Notification.where("user_id = ? AND status = 'unread'", current_user.id).count
   end
 end

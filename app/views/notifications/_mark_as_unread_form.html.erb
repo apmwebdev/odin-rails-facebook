@@ -1,0 +1,5 @@
+<%= form_with model: notification, method: :patch, class: "inline" do |f| %>
+  <%= f.hidden_field :id, value: notification.id %>
+  <%= f.hidden_field :status, value: "unread" %>
+  <%= f.submit "Mark as unread", name: nil %>
+<% end %>
