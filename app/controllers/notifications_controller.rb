@@ -50,11 +50,7 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1 or /notifications/1.json
   def destroy
     @notification.destroy
-
-    respond_to do |format|
-      format.html { redirect_to notifications_url, notice: "Notification was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to notifications_url, notice: "Notification dismissed"
   end
 
   private
@@ -65,6 +61,6 @@ class NotificationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notification_params
-      params.require(:notification).permit(:title, :body, :status)
+      params.require(:notification).permit(:status)
     end
 end

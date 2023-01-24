@@ -1,11 +1,9 @@
 <div id="<%= dom_id notification %>">
   <p>
-    <strong>Title:</strong>
-    <%= notification.title %>
+    <strong><%= notification.title %></strong>
   </p>
 
   <p>
-    <strong>Body:</strong>
     <%= notification.body %>
   </p>
 
@@ -14,4 +12,10 @@
     <%= notification.status %>
   </p>
 
+  <%= button_to "Dismiss", notification, method: :delete %>
+  <% if notification.status == "unread" %>
+    <%= render "mark_as_read_form", notification: %>
+  <% else %>
+    <%= render "mark_as_unread_form", notification: %>
+  <% end %>
 </div>
